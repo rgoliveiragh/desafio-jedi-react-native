@@ -8,19 +8,20 @@ import { Divider } from '../screens/Home/styles';
 import { Loading } from './Loading';
 
 interface CoinProps {
+  loading: boolean;
   refreshing: boolean;
   handleRefresh: () => void;
   filteredCoins: CoinDTO[];
 }
 
-export const Coin: React.FC<CoinProps> = ({ refreshing, handleRefresh, filteredCoins }) => {
+export const Coin: React.FC<CoinProps> = ({ refreshing, handleRefresh, filteredCoins, loading }) => {
   const renderCoinItem = ({ item }: { item: CoinDTO }) => {
     return <CoinItem coin={item} />;
   };
 
   return (
     <>
-      {refreshing ? (
+      {loading ? (
         <Loading />
       ) : (
         <FlatList

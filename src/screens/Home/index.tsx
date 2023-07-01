@@ -6,7 +6,7 @@ import { Coin } from '../../components/Coin';
 import { useCoin } from '../../hooks/home/useCoin';
 
 export const Home: React.FC = () => {
-  const { searchText, handleSearch, handleRefresh, refreshing, filteredCoins, handleBackButton } = useCoin()
+  const { searchText, handleSearch, handleRefresh, refreshing, filteredCoins, handleBackButton, loading } = useCoin()
 
   return (
     <Container>
@@ -28,6 +28,7 @@ export const Home: React.FC = () => {
       </MarginContainer>
 
       <Coin
+        loading={loading}
         refreshing={refreshing}
         handleRefresh={handleRefresh} 
         filteredCoins={filteredCoins}

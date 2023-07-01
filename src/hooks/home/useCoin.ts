@@ -6,6 +6,7 @@ import { Keyboard } from "react-native";
 export const useCoin = () => {
   const [searchText, setSearchText] = useState('');
   const [coins, setCoins] = useState<CoinDTO[]>([]);
+  const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
 
   const handleSearch = (text: string) => {
@@ -22,10 +23,9 @@ export const useCoin = () => {
   );
 
   const fetchAllCoins = async () => {
-    setRefreshing(true)
     const response = await fetchCoins();
     setCoins(response);
-    setRefreshing(false)
+    setLoading(false)
   };
   
   const handleRefresh = async () => {
@@ -39,6 +39,7 @@ export const useCoin = () => {
   }, []);
 
   return {
+    loading,
     refreshing,
     searchText,
     handleSearch,

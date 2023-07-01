@@ -3,7 +3,7 @@ import { CoinDTO } from "../dtos/Coin";
 import { mockData } from "../constants/mockData";
 
 // Set this flag to true to use the mock data, false to use the real API
-const useMock = true;
+const useMock = false;
 
 // Real API endpoint
 const API_URL = 'https://api.coingecko.com/api/v3/coins/markets';
